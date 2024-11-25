@@ -1,121 +1,49 @@
 // src/components/ResultView.jsx
 import React from 'react';
-import { Typography, Card, CardContent, Box, Divider } from '@mui/material';
+import './ResultView.css'; // Archivo CSS personalizado
 
 const ResultView = ({ data }) => {
   if (!data.length) return null;
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: 3, // Más espacio entre las tarjetas
-        padding: 3,
-        backgroundColor: '#f4f4f4', // Fondo suave para todo el contenedor
-      }}
-    >
+    <div className="result-container">
       {data.map((item, index) => (
-        <Card
-          key={index}
-          sx={{
-            borderRadius: 2,
-            boxShadow: '0 6px 10px rgba(0, 0, 0, 0.1)', // Sombra más pronunciada
-            overflow: 'hidden',
-            padding: 2, // Espaciado interno
-          }}
-        >
-          <CardContent>
-            {/* Datos principales del GAP */}
-            <Typography
-              variant="h6"
-              sx={{
-                fontWeight: 'bold',
-                color: '#222', // Más contraste
-                marginBottom: 1,
-              }}
-            >
-              Documento: {item.documento}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontWeight: 'bold',
-                color: '#333', // Texto destacado
-                marginBottom: 1,
-              }}
-            >
-              Nombre: {item.nombreCompleto}
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                fontWeight: 'bold',
-                color: '#333',
-                marginBottom: 2,
-              }}
-            >
-              Fecha de Entrega: {item.fechaEntrega}
-            </Typography>
-            <Divider />
-            {/* Atenciones del VTIGER */}
-            <Box sx={{ marginTop: 2 }}>
-              {item.atenciones.map((atencion, idx) => (
-                <Box
-                  key={idx}
-                  sx={{
-                    padding: 1,
-                    backgroundColor: '#ffffff', // Fondo blanco
-                    border: '1px solid #ddd', // Borde sutil
-                    borderRadius: 1,
-                    marginBottom: 1,
-                    transition: 'background-color 0.2s',
-                    '&:hover': {
-                      backgroundColor: '#f7f7f7', // Fondo al pasar el mouse
-                    },
-                  }}
-                >
-                  {atencion.subtopicname === 'No registro atencion' ? (
-                    <Typography
-                      variant="body2"
-                      sx={{
-                        fontStyle: 'italic',
-                        fontSize: '0.9rem',
-                        color: '#888',
-                      }}
-                    >
-                      No registro atención
-                    </Typography>
-                  ) : (
-                    <>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontWeight: 'bold',
-                          fontSize: '0.9rem',
-                          color: '#444',
-                        }}
-                      >
-                        Modificado Por: {atencion.modificadoPor}
-                      </Typography>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontSize: '0.85rem',
-                          color: '#666',
-                        }}
-                      >
-                        Subtópico: {atencion.subtopicname}
-                      </Typography>
-                    </>
-                  )}
-                </Box>
-              ))}
-            </Box>
-          </CardContent>
-        </Card>
+        <div key={index} className="result-card">
+          {/* Datos principales del GAP */}
+          <div className="gap-data">
+            <div className="gap-item">
+              <span className="label">Documento:</span> {item.documento}
+            </div>
+            <div className="gap-item">
+              <span className="label">Nombre:</span> {item.nombreCompleto}
+            </div>
+            <div className="gap-item">
+              <span className="label">Fecha de Entrega:</span> {item.fechaEntrega}
+            </div>
+          </div>
+          <div className="divider"></div>
+          {/* Atenciones del VTIGER */}
+          <div className="atenciones">
+            {item.atenciones.map((atencion, idx) => (
+              <div key={idx} className="atencion-item">
+                {atencion.subtopicname === 'No registro atencion' ? (
+                  <span className="no-atencion">No registro atención</span>
+                ) : (
+                  <>
+                    <div className="atencion-detail">
+                      <span className="label">Modificado Por:</span> {atencion.modificadoPor}
+                    </div>
+                    <div className="atencion-detail">
+                      <span className="label">Subtópico:</span> {atencion.subtopicname}
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
       ))}
-    </Box>
+    </div>
   );
 };
 

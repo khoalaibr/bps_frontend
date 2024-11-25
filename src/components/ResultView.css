@@ -1,0 +1,64 @@
+.result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  .result-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .gap-data {
+    margin-bottom: 10px;
+  }
+  
+  .gap-item {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 10px 0;
+  }
+  
+  .atenciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .atencion-item {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+  
+  .atencion-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .atencion-detail {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  .no-atencion {
+    font-style: italic;
+    color: #888;
+  }
+  
