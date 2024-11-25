@@ -28,10 +28,10 @@ const ResultView = ({ data }) => {
             <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#333' }}>
               Documento: {item.documento}
             </Typography>
-            <Typography variant="body2" sx={{ color: '#555', marginBottom: 1 }}>
+            <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#333' }}>
               Nombre: {item.nombreCompleto}
             </Typography>
-            <Typography variant="body2" sx={{ color: '#555', marginBottom: 2 }}>
+            <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#333', marginBottom: 2 }}>
               Fecha de Entrega: {item.fechaEntrega}
             </Typography>
             <Divider />
@@ -48,15 +48,35 @@ const ResultView = ({ data }) => {
                   }}
                 >
                   {atencion.subtopicname === 'No registro atencion' ? (
-                    <Typography variant="body2" sx={{ fontStyle: 'italic', color: '#888' }}>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontStyle: 'italic',
+                        fontSize: '0.9rem',
+                        color: '#888',
+                      }}
+                    >
                       No registro atención
                     </Typography>
                   ) : (
                     <>
-                      <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#333' }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontWeight: 'bold',
+                          fontSize: '0.9rem',
+                          color: '#555',
+                        }}
+                      >
                         Modificado Por: {atencion.modificadoPor}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: '#555' }}>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: '0.85rem',
+                          color: '#666',
+                        }}
+                      >
                         Subtópico: {atencion.subtopicname}
                       </Typography>
                     </>
